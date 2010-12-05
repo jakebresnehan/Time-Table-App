@@ -1,14 +1,11 @@
 body {
      background: rgb(241,215,140);
-     background-image:url('img/bg.jpg');
       
 }
 
 body > * {
     background: rgb(241,215,140);
     background-image:url('img/bg.jpg');
-      
- 
 }
 
 h1, h2 {
@@ -719,7 +716,7 @@ background-repeat: no-repeat;
 }
 
 .fav_bg{
-
+  background-image: url('img/bg-fav.jpg');
 }
 
 

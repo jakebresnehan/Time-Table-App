@@ -145,7 +145,7 @@ $(document).ready(function(){
     for(var i in favs){
       
       var start = convertTime(favs[i].start);
-      var finish = convertTime(favs[i].start);
+      var finish = convertTime(favs[i].finish);
       
       var content = '<li id="'+favs[i].id+'" class="fav">' + '<span class="time">'+start+' : '+finish+'</span>'+favs[i].band+'<span class="stage">'+favs[i].stage+' Stage</span></li>';
       $('#'+favs[i].day+'_favs_acts').append(content);
