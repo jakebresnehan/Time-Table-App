@@ -102,7 +102,7 @@ $(document).ready(function(){
   }
   
   //on tap, add/remove the act from the personal timetable
-  $('.act').tap( function(e){
+  $('.act').bind('click', function(e){
     
     //get the id of the act that has been 'tapped'
     var act_id = $(this).attr("id");
@@ -125,6 +125,7 @@ $(document).ready(function(){
       for(var i in acts){     
         if(acts[i].id==act_id){
           //TODO add act_id to html5 storage
+          
           //push act[i] to favs array and sort it by start time
           favs.push(acts[i]);
           favs.sort(function(a,b){return a.start - b.start})
