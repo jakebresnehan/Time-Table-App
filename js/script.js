@@ -9,6 +9,7 @@ $.jQTouch({
 
 var act_id = 0;
 var acts =  new Array();
+var favs = new Array();
 
 function act(day, stage, band, start, finish){
   
@@ -90,9 +91,38 @@ $(document).ready(function(){
   
   //Build line ups
   for(var i in acts){
-    var content = '<li id="'+acts[i].id+'">' + '<span class="time">'+acts[i].start+' : '+acts[i].finish+'</span>'+acts[i].band+'</li>'
+    var content = '<li id="'+acts[i].id+'" class="act">' + '<span class="time">'+acts[i].start+' : '+acts[i].finish+'</span>'+acts[i].band+'</li>'
     $('#'+acts[i].day+'_'+acts[i].stage+'_acts').append(content);
   }
+  
+  //on tap, add/remove the act from the personal timetable
+  $('.act').tap( function(e){
+    
+    //get the id of the act that has been 'tapped'
+    var act_id = $(this).attr("id");
+    
+    //match the id with the id of the act in the acts array
+    for(var i in acts){     
+      if(acts[i].id==act_id){
+        //add act_id to html5 storage
+        //push act[i] to favs array and sort it by start time
+        favs.push(acts[i]);
+        favs.sort(function(a,b){return a.start - b.start})
+      }
+    }
+    
+    //clear the fav timetables ready to be rebuilt
+    $('#wed_favs_acts').empty();
+    $('#thu_favs_acts').empty();
+    $('#fri_favs_acts').empty();
+    
+    //after act is added/removed, rebuild the fav timetable
+    for(var i in favs){
+      var content = '<li id="'+favs[i].id+'" class="act">' + '<span class="time">'+favs[i].start+' : '+favs[i].finish+'</span>'+favs[i].band+'<span class="stage">'+favs[i].stage+' Stage</span></li>'
+      $('#'+favs[i].day+'_favs_acts').append(content);
+    }
+
+  });
   
 })
 

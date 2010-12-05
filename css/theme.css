@@ -693,6 +693,14 @@ font-size: 80%;
 padding-bottom: 5px;
 }
 
+span.stage{
+  display:block;
+  font-size: 80%;
+  padding-top: 5px;
+  text-transform:capitalize;
+}
+
+
 ul li.fav{
 background-image: url(img/default_star.png);
 background-position: 95% 50%;
@@ -706,7 +714,7 @@ background-position: 95% 50%;
 background-repeat: no-repeat;
 }
 
-#my_timetable{
+.fav_bg{
   background: green;
 }
 
