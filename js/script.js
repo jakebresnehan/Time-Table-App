@@ -115,7 +115,8 @@ $(document).ready(function(){
         }
       }
       
-      $(this).removeClass('fav');
+      $(this).removeClass('fav').css('background-color','#eee');;
+      $(this).animate({ backgroundColor: "#fff" }, 'slow');
       
     }
     else{
@@ -127,7 +128,8 @@ $(document).ready(function(){
           //push act[i] to favs array and sort it by start time
           favs.push(acts[i]);
           favs.sort(function(a,b){return a.start - b.start})
-          $(this).addClass('fav');
+          $(this).addClass('fav').css('background-color','#9ada9b');
+          $(this).animate({ backgroundColor: "#EDFFEF" }, 'slow');
         }
         
       }
