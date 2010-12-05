@@ -131,7 +131,6 @@ $(document).ready(function(){
           $('#fri_field_acts').append(content);
         }
       };
-      console.log(acts[i].stage);
   
 })
 

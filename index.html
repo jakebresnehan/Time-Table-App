@@ -18,8 +18,8 @@
 </head>
 <body>
   
-  
-  <div id="page1">
+  <!-- Home Page ---------------------------------------------------------------------->
+  <div id="home">
     
     <div class="toolbar">
       <h1>Marion Bay</h1>
@@ -27,126 +27,138 @@
     </div>
     
     <ul class="edgetoedge">
-        <li class="forward"><a href="#page2">Wed (29th)</a></li>
-        <li class="forward"><a href="#page4">Thu (30th)</a></li>
-        <li class="forward"><a href="#page7">Fri (31st)</a></li>
+        <li class="forward"><a href="#wed">Wed (29th)</a></li>
+        <li class="forward"><a href="#thu">Thu (30th)</a></li>
+        <li class="forward"><a href="#fri">Fri (31st)</a></li>
     </ul>
-    <div class="info">
-        <p>Add this page to your home screen to view the custom icon, startup screen, and full screen mode.</p>
+     
+  </div>
+
+  <!-- My Timetable Page ---------------------------------------------------------------------->
+  <div id="my_timetable">
+    
+    <div class="toolbar">
+      <h1>My Timetable</h1>
+      <a href="#" class="back">back</a>
     </div>
-</div>
-
-
-<!-- my_timetable Page -->
-<div id="my_timetable">
-  <div class="toolbar">
-    <h1>My Timetable</h1>
-    <a href="#" class="back">back</a>
+    
   </div>
-</div>
 
-<!-- Wednesday 29th -->
-<div id="page2">
-  <div class="toolbar">
-    <a href="#" class="back">back</a>
-  <h1>[day]</h1>
- </div>
-  <ul class="edgetoedge">
-    <li><a href="#page3">Valley Tent</a></li>
-  </ul>
-  <div class="info">
-      <p>The title for this page was automatically set from it&#8217;s referring link, no extra scripts required. Just
-        include the extension and this happens.</p>
-  </div>
-</div>
- 
-<!-- Valley Tent - Wednesday 29th -->
-<div id="page3">
-  <div class="toolbar">
-    <a href="#" class="back">back</a>
-    <h1>[day]</h1>
-  </div>
-  
-    <ul class="edgetoedge" id="wed_valley_acts">
-      <!-- this is empty and will be filled by scripts.js -->
-    </ul>
-  
-</div>
-
-<!-- Thursday 30th -->
-<div id="page4">
- 	<div class="toolbar">
-    <a href="#" class="back">back</a>
-    <h1>[day]</h1>
-  </div>
-  <ul class="edgetoedge">
-    <li><a href="#page5">Valley Stage</a></li>
-  </ul>
-  <ul class="edgetoedge">
-    <li><a href="#page6"> Field Stage</a></li>
-  </ul>
-</div>
-
-<!-- Valley Stage - Thursday 30th -->
-<div id="page5">
-  <div class="toolbar">
-    <a href="#" class="back">back</a>
-    <h1>[day]</h1>
-  </div>
+  <!-- Wednesday 29th ---------------------------------------------------------------------->
+  <div id="wed">
+    
+    <div class="toolbar">
+      <a href="#" class="back">back</a>
+      <h1>[day]</h1>
+   </div>
    
-   <ul class="edgetoedge" id="thu_valley_acts">
-      <!-- this is empty and will be filled by scripts.js -->
-  </ul>
-</div>
-
-<!-- Field Stage - Thursday 30th -->
-<div id="page6">
-  <div class="toolbar">
-    <a href="#" class="back">back</a>
-    <h1>[day]</h1>
+    <ul class="edgetoedge">
+      <li><a href="#wed_valley">Valley Tent</a></li>
+    </ul>
+    
   </div>
-  <ul class="edgetoedge" id="thu_field_acts">
-      <!-- this is empty and will be filled by scripts.js -->
-  </ul>
-</div>
+ 
+      <!-- Valley Tent - Wednesday 29th -->
+      <div id="wed_valley">
+        
+        <div class="toolbar">
+          <a href="#" class="back">back</a>
+          <h1>[day]</h1>
+        </div>
+        
+        <ul class="edgetoedge" id="wed_valley_acts">
+          <!-- this is empty and will be filled by scripts.js -->
+        </ul>
+        
+      </div>
+      
+
+  <!-- Thursday 30th ---------------------------------------------------------------------->
+  <div id="thu">
+    
+   	<div class="toolbar">
+      <a href="#" class="back">back</a>
+      <h1>[day]</h1>
+    </div>
+    
+    <ul class="edgetoedge">
+      <li><a href="#thu_valley">Valley Stage</a></li>
+      <li><a href="#thu_field"> Field Stage</a></li>
+    </ul>
+    
+  </div>
+
+      <!-- Valley Stage - Thursday 30th -->
+      <div id="thu_valley">
+        
+        <div class="toolbar">
+          <a href="#" class="back">back</a>
+          <h1>[day]</h1>
+        </div>
+         
+        <ul class="edgetoedge" id="thu_valley_acts">
+            <!-- this is empty and will be filled by scripts.js -->
+        </ul>
+        
+      </div>
+
+      <!-- Field Stage - Thursday 30th -->
+      <div id="thu_field">
+        
+        <div class="toolbar">
+          <a href="#" class="back">back</a>
+          <h1>[day]</h1>
+        </div>
+        
+        <ul class="edgetoedge" id="thu_field_acts">
+            <!-- this is empty and will be filled by scripts.js -->
+        </ul>
+        
+      </div>
  
  
-<!-- Friday 31st -->  
-<div id="page7">
-  <div class="toolbar">
-    <a href="#" class="back">back</a>
-    <h1>[day]</h1>
+  <!-- Friday 31st ----------------------------------------------------------------------> 
+  <div id="fri">
+    
+    <div class="toolbar">
+      <a href="#" class="back">back</a>
+      <h1>[day]</h1>
+    </div>
+    
+    <ul class="edgetoedge">
+      <li><a href="#fri_valley">Valley Stage</a></li>
+      <li><a href="#fri_field"> Field Stage</a></li>
+    </ul>
+    
   </div>
-  <ul class="edgetoedge">
-    <li><a href="#page8">Valley Stage</a></li>
-  </ul>
-  <ul class="edgetoedge">
-    <li><a href="#page9"> Field Stage</a></li>
-  </ul>
-</div>
  
-<!-- Valley Stage - Friday 31st --> 
-<div id="page8">
-  <div class="toolbar">
-    <a href="#" class="back">back</a>
-    <h1>[day]</h1>
-  </div>
-  <ul class="edgetoedge" id="fri_valley_acts">
-      <!-- this is empty and will be filled by scripts.js -->
-  </ul>
-</div>
+      <!-- Valley Stage - Friday 31st --> 
+      <div id="fri_valley">
+        
+        <div class="toolbar">
+          <a href="#" class="back">back</a>
+          <h1>[day]</h1>
+        </div>
+        
+        <ul class="edgetoedge" id="fri_valley_acts">
+            <!-- this is empty and will be filled by scripts.js -->
+        </ul>
+        
+      </div>
 
-<!-- Field Stage - 31st -->
-<div id="page9">
-  <div class="toolbar">
-    <a href="#" class="back">back</a>
-  <h1>[day]</h1>
-  </div>
-  <ul class="edgetoedge" id="fri_field_acts">
-      <!-- this is empty and will be filled by scripts.js -->
-  </ul>
-</div>
-
+      <!-- Field Stage - 31st -->
+      <div id="fri_field">
+        
+        <div class="toolbar">
+          <a href="#" class="back">back</a>
+          <h1>[day]</h1>
+        </div>
+        
+        <ul class="edgetoedge" id="fri_field_acts">
+            <!-- this is empty and will be filled by scripts.js -->
+        </ul>
+        
+      </div>
 
 </body>
 </html>
