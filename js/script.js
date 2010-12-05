@@ -7,6 +7,8 @@ $.jQTouch({
       ]
 });  
 
+
+
 var act_id = 0;
 var acts =  new Array();
 var favs = new Array();
@@ -41,7 +43,7 @@ act("wed","valley","Dj Kano","2030","2200");
 
 //Thursday
 act("thu","valley","Ben Wells & The Middle Names","1100","1140");
-act("thu","valley","Could Control","1200","1240");
+act("thu","valley","Cloud Control","1200","1240");
 act("thu","valley","Daara J Family","1300","1350");
 act("thu","valley","The Beautiful Girls","1410","1500");
 act("thu","valley","Cold War Kids","1520","1610");
@@ -101,15 +103,31 @@ $(document).ready(function(){
     //get the id of the act that has been 'tapped'
     var act_id = $(this).attr("id");
     
-    //match the id with the id of the act in the acts array
-    for(var i in acts){     
-      if(acts[i].id==act_id){
-        //add act_id to html5 storage
-        //push act[i] to favs array and sort it by start time
-        favs.push(acts[i]);
-        favs.sort(function(a,b){return a.start - b.start})
-        $(this).addClass('fav');
+    if($(this).hasClass('fav')){
+      
+      for(var i in favs){
+        if(favs[i].id==act_id){
+          favs.splice(i,1);
+        }
       }
+      
+      $(this).removeClass('fav');
+      
+    }
+    else{
+   
+      //match the id with the id of the act in the acts array
+      for(var i in acts){     
+        if(acts[i].id==act_id){
+          //TODO add act_id to html5 storage
+          //push act[i] to favs array and sort it by start time
+          favs.push(acts[i]);
+          favs.sort(function(a,b){return a.start - b.start})
+          $(this).addClass('fav');
+        }
+        
+      }
+        
     }
     
     //clear the fav timetables ready to be rebuilt
@@ -119,8 +137,10 @@ $(document).ready(function(){
     
     //after act is added/removed, rebuild the fav timetable
     for(var i in favs){
-      var content = '<li id="'+favs[i].id+'" class="fav">' + '<span class="time">'+favs[i].start+' : '+favs[i].finish+'</span>'+favs[i].band+'<span class="stage">'+favs[i].stage+' Stage</span></li>'
+      
+      var content = '<li id="'+favs[i].id+'" class="fav">' + '<span class="time">'+favs[i].start+' : '+favs[i].finish+'</span>'+favs[i].band+'<span class="stage">'+favs[i].stage+' Stage</span></li>';
       $('#'+favs[i].day+'_favs_acts').append(content);
+      
     }
 
   });
