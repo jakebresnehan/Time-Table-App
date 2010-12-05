@@ -134,9 +134,6 @@ $(document).ready(function(){
         }
       };
 
-    //console.log(acts[i].band);
-  }
-
   
 })
 
