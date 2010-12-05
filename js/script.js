@@ -3,10 +3,7 @@ $.jQTouch({
   addGlossToIcon: true,
   statusBar: 'default',
   preloadImages: [
-      /*have to read on on why to preLoad and which ones to include
-      'css/img/chevron_white.png',*/
-      'img/back_button_clicked.png',
-      'img/button_clicked.png'
+      /*have to read on on why to preLoad and which ones to include*/
       ]
 });  
 
@@ -127,13 +124,14 @@ $(document).ready(function(){
       }
     };
     
+    
     for(var i in acts){
         if(acts[i].day=="fri" && acts[i].stage == "field"){
           var content = '<li>' + '<span class="time">'+acts[i].start+' : '+acts[i].finish+'</span>'+acts[i].band+'</li>'
           $('#fri_field_acts').append(content);
         }
       };
-
+      console.log(acts[i].stage);
   
 })
 
