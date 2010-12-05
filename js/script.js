@@ -7,7 +7,6 @@ $.jQTouch({
       ]
 });  
 
-
 var act_id = 0;
 var acts =  new Array();
 
@@ -16,7 +15,7 @@ function act(day, stage, band, start, finish){
   act_id++;
   
   var act={
-      id: act_id,
+      id: 'id_'+act_id,
       day: day,
       stage: stage,
       band: band,
@@ -28,7 +27,7 @@ function act(day, stage, band, start, finish){
 
 }
 
-//Wednesday Valley Tent
+//Wednesday
 act("wed","valley","Dj Chris Gill","1500","1600");
 act("wed","valley","Anna's Go-Go Academy","1600","1630");
 act("wed","valley","Dj Chris Gill","1630","1715");
@@ -63,7 +62,6 @@ act("thu","field","The Soft Pack","1640","1730");
 act("thu","field","Tijuana Cartel","1750","1850");
 act("thu","field","The Cool Kids","1910","2000");
 
-
 //Friday
 act("fri","valley","Hayley Cooper","1110","1150");
 act("fri","valley","The Middle East","1210","1300");
@@ -78,7 +76,6 @@ act("fri","valley","Interpol","2230","2330");
 act("fri","valley","Klaxons","0000","0100");
 act("fri","valley","Peaches Dj Show","0110","0210");
 act("fri","valley","The Cuban Brothers","0230","0330");
-
 act("fri","field","Guthrie","1030","1110");
 act("fri","field","Boy & Bear","1130","1215");
 act("fri","field","Big Scary","1235","1320");
@@ -89,48 +86,13 @@ act("fri","field","The Jezabels","1710","1750");
 act("fri","field","The Bamboos","1810","1840");
 act("fri","field","Edan The Dee Jay","1900","2000");
 
-
-
 $(document).ready(function(){
   
+  //Build line ups
   for(var i in acts){
-    if(acts[i].day=="wed" && acts[i].stage == "valley"){
-      var content = '<li>' + '<span class="time">'+acts[i].start+' : '+acts[i].finish+'</span>'+acts[i].band+'</li>'
-      $('#wed_valley_acts').append(content);
-    }
-
-  };
-  
-  
-  for(var i in acts){
-    if(acts[i].day=="thu" && acts[i].stage == "valley"){
-      var content = '<li>' + '<span class="time">'+acts[i].start+' : '+acts[i].finish+'</span>'+acts[i].band+'</li>'
-      $('#thu_valley_acts').append(content);
-    }
-  };
-  
-  
-  for(var i in acts){
-     if(acts[i].day=="thu" && acts[i].stage == "field"){
-       var content = '<li>' + '<span class="time">'+acts[i].start+' : '+acts[i].finish+'</span>'+acts[i].band+'</li>'
-       $('#thu_field_acts').append(content);
-     }
-   };
-   
-   for(var i in acts){
-      if(acts[i].day=="fri" && acts[i].stage == "valley"){
-        var content = '<li>' + '<span class="time">'+acts[i].start+' : '+acts[i].finish+'</span>'+acts[i].band+'</li>'
-        $('#fri_valley_acts').append(content);
-      }
-    };
-    
-    
-    for(var i in acts){
-        if(acts[i].day=="fri" && acts[i].stage == "field"){
-          var content = '<li>' + '<span class="time">'+acts[i].start+' : '+acts[i].finish+'</span>'+acts[i].band+'</li>'
-          $('#fri_field_acts').append(content);
-        }
-      };
+    var content = '<li id="'+acts[i].id+'">' + '<span class="time">'+acts[i].start+' : '+acts[i].finish+'</span>'+acts[i].band+'</li>'
+    $('#'+acts[i].day+'_'+acts[i].stage+'_acts').append(content);
+  }
   
 })
 
