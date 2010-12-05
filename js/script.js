@@ -31,7 +31,7 @@ function act(day, stage, band, start, finish){
 
 }
 
-//Wednesday
+//Wednesday Valley Tent
 act("wed","valley","Dj Chris Gill","1500","1600");
 act("wed","valley","Anna's Go-Go Academy","1600","1630");
 act("wed","valley","Dj Chris Gill","1630","1715");
@@ -41,7 +41,7 @@ act("wed","valley","Anna's Go-Go Academy","1845","1915");
 act("wed","valley","Dj Emma Peel","1915","2015");
 act("wed","valley","Lilikoi Kaos","2015","20:30");
 act("wed","valley","Dj Kano","2030","2200");
-//Thursday
+//Thursday Valley
 act("thu","valley","Dj Chris Gill","1500","1600");
 act("thu","valley","Anna's Go-Go Academy","1600","1630");
 act("thu","valley","Dj Chris Gill","1630","1715");
@@ -53,14 +53,47 @@ act("thu","valley","Lilikoi Kaos","2015","20:30");
 act("thu","valley","Dj Kano","2030","2200");
 
 
+
+
+
 $(document).ready(function(){
   
   for(var i in acts){
     if(acts[i].day=="wed" && acts[i].stage == "valley"){
-      var content = '<li>'+acts[i].band+'</li>'
+      var content = '<li>' + '<span class="time">'+acts[i].start+' : '+acts[i].finish+'</span>'+acts[i].band+'</li>'
       $('#wed_valley_acts').append(content);
     }
-  }
+  };
+  
+  
+  for(var i in acts){
+    if(acts[i].day=="thu" && acts[i].stage == "valley"){
+      var content = '<li>' + '<span class="time">'+acts[i].start+' : '+acts[i].finish+'</span>'+acts[i].band+'</li>'
+      $('#thu_valley_acts').append(content);
+    }
+  };
+  
+  
+  for(var i in acts){
+     if(acts[i].day=="thu" && acts[i].stage == "field"){
+       var content = '<li>' + '<span class="time">'+acts[i].start+' : '+acts[i].finish+'</span>'+acts[i].band+'</li>'
+       $('#thu_field_acts').append(content);
+     }
+   };
+   
+   for(var i in acts){
+      if(acts[i].day=="fri" && acts[i].stage == "valley"){
+        var content = '<li>' + '<span class="time">'+acts[i].start+' : '+acts[i].finish+'</span>'+acts[i].band+'</li>'
+        $('#fri_valley_acts').append(content);
+      }
+    };
+    
+    for(var i in acts){
+        if(acts[i].day=="fri" && acts[i].stage == "field"){
+          var content = '<li>' + '<span class="time">'+acts[i].start+' : '+acts[i].finish+'</span>'+acts[i].band+'</li>'
+          $('#fri_field_acts').append(content);
+        }
+      };
   
 })
 
