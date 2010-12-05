@@ -13,35 +13,22 @@
    <!-- have not implemented offline yet - http://code.google.com/p/jqtouch/wiki/OfflineSupport
       <script src="js/jqt.offline.js" type="text/javascript" charset="utf-8"></script>
     -->
-    
-    <script type="text/javascript" charset="utf-8">
-      $.jQTouch({
-        icon: 'css/img/jqtouch.png',
-        addGlossToIcon: true,
-        statusBar: 'default',
-        preloadImages: [
-            /*have to read on on why to preLoad and which ones to include
-            'css/img/chevron_white.png',*/
-            'img/back_button_clicked.png',
-            'img/button_clicked.png'
-            ]
-      });    
-    </script>
+    <script src="js/script.js" type="application/x-javascript" charset="utf-8"></script>
     
 </head>
 <body>
+  
+  
   <div id="page1">
+    
     <div class="toolbar">
       <h1>Marion Bay</h1>
-      <a href="#about" class="button flip">About</a>
+      <a href="#my_timetable" class="button flip">My Timetable</a>
     </div>
+    
     <ul class="edgetoedge">
-        <li><a href="#page2">Wed (29th)</a></li>
-    </ul>
-    <ul class="edgetoedge">
-        <li><a href="#page4">Thu (30th)</a></li>
-    </ul>
-    <ul class="edgetoedge">
+        <li class="forward"><a href="#page2">Wed (29th)</a></li>
+        <li class="forward"><a href="#page4">Thu (30th)</a></li>
         <li class="forward"><a href="#page7">Fri (31st)</a></li>
     </ul>
     <div class="info">
@@ -50,14 +37,11 @@
 </div>
 
 
-<!-- About Page -->
-<div id="about">
+<!-- my_timetable Page -->
+<div id="my_timetable">
   <div class="toolbar">
-    <h1>About</h1>
+    <h1>My Timetable</h1>
     <a href="#" class="back">back</a>
-  </div>
-  <div class="info">
-      <p>Developed by Jake Bresnehan and John Cobb</p>
   </div>
 </div>
 
@@ -82,6 +66,12 @@
     <a href="#" class="back">back</a>
     <h1>[day]</h1>
   </div>
+  
+    <ul class="edgetoedge" id="wed_valley_acts">
+      <!-- this is empty and will be filled by scripts.js -->
+    </ul>
+  
+  <!-- commented this out while testing generating the content from the array 
   <ul class="edgetoedge">
     <li class="fav"><a href="#fav"><span class="time">3pm - 4pm</span>DJ Chris Gill</a></li>
   </ul>
@@ -108,11 +98,13 @@
   </ul>
   <ul class="edgetoedge">
     <li class ="fav"><a href="#fav"><span class="time">8:30pm - 10:00pm</span>DJ Kano</a></li>
-  </ul>
+  </ul>-->
+  
   <div class="info">
       <p>The title for this page was automatically set from it&#8217;s referring link, no extra scripts required. Just
         include the extension and this happens.</p>
   </div>
+  
 </div>
 
 <!-- Thursday 30th -->
