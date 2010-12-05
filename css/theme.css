@@ -701,14 +701,14 @@ span.stage{
 }
 
 
-ul li.fav{
+ul li.act{
 background-image: url(img/default_star.png);
 background-position: 95% 50%;
 background-repeat: no-repeat;
 }
 
 
-ul li.fav_stared{
+ul li.fav{
 background-image: url(img/star.png);
 background-position: 95% 50%;
 background-repeat: no-repeat;

@@ -108,6 +108,7 @@ $(document).ready(function(){
         //push act[i] to favs array and sort it by start time
         favs.push(acts[i]);
         favs.sort(function(a,b){return a.start - b.start})
+        $(this).addClass('fav');
       }
     }
     
@@ -118,7 +119,7 @@ $(document).ready(function(){
     
     //after act is added/removed, rebuild the fav timetable
     for(var i in favs){
-      var content = '<li id="'+favs[i].id+'" class="act">' + '<span class="time">'+favs[i].start+' : '+favs[i].finish+'</span>'+favs[i].band+'<span class="stage">'+favs[i].stage+' Stage</span></li>'
+      var content = '<li id="'+favs[i].id+'" class="fav">' + '<span class="time">'+favs[i].start+' : '+favs[i].finish+'</span>'+favs[i].band+'<span class="stage">'+favs[i].stage+' Stage</span></li>'
       $('#'+favs[i].day+'_favs_acts').append(content);
     }
 
