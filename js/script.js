@@ -66,7 +66,7 @@ act("thu","field","The Soft Pack","1640","1730");
 act("thu","field","Tijuana Cartel","1750","1850");
 act("thu","field","The Cool Kids","1910","2000");
 
-
+act("fri","field","The Cool Kids","1910","2000");
 
 
 
