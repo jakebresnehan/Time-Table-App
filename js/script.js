@@ -93,7 +93,11 @@ $(document).ready(function(){
   
   //Build line ups
   for(var i in acts){
-    var content = '<li id="'+acts[i].id+'" class="act">' + '<span class="time">'+acts[i].start+' : '+acts[i].finish+'</span>'+acts[i].band+'</li>'
+    
+    var start = convertTime(acts[i].start);
+    var finish = convertTime(acts[i].finish);
+    
+    var content = '<li id="'+acts[i].id+'" class="act">' + '<span class="time">'+start+' : '+finish+'</span>'+acts[i].band+'</li>'
     $('#'+acts[i].day+'_'+acts[i].stage+'_acts').append(content);
   }
   
@@ -138,7 +142,10 @@ $(document).ready(function(){
     //after act is added/removed, rebuild the fav timetable
     for(var i in favs){
       
-      var content = '<li id="'+favs[i].id+'" class="fav">' + '<span class="time">'+favs[i].start+' : '+favs[i].finish+'</span>'+favs[i].band+'<span class="stage">'+favs[i].stage+' Stage</span></li>';
+      var start = convertTime(favs[i].start);
+      var finish = convertTime(favs[i].start);
+      
+      var content = '<li id="'+favs[i].id+'" class="fav">' + '<span class="time">'+start+' : '+finish+'</span>'+favs[i].band+'<span class="stage">'+favs[i].stage+' Stage</span></li>';
       $('#'+favs[i].day+'_favs_acts').append(content);
       
     }
@@ -148,6 +155,43 @@ $(document).ready(function(){
 })
 
 
-
+function convertTime(time){
+  
+  var ampm;
+  var hr;
+  var min;
+  var converted;
+  
+  if(time<0100){
+    ampm="am";
+    hr = 12;
+    min = time.substring(2,4);
+  }
+  else if(time<1000){
+    ampm="am";
+    hr = time.substring(1,2);
+    min = time.substring(2,4);
+  }
+  else if(time<1200){
+    ampm="am";
+    hr = time.substring(0,2);
+    min = time.substring(2,4);
+  }
+  else if(time<1300){
+    ampm="pm";
+    hr = time.substring(0,2);
+    min = time.substring(2,4);
+  }
+  else{
+    ampm="pm";
+    hr = time.substring(0,2)-12;
+    min = time.substring(2,4);
+  }
+    
+  converted = hr+':'+min+ampm;
+  
+  return converted;
+  
+}
 
 
