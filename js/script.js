@@ -8,7 +8,6 @@ $.jQTouch({
 });  
 
 
-
 var act_id = 0;
 var acts =  new Array();
 var favs = new Array();
@@ -90,73 +89,219 @@ act("fri","field","The Bamboos","1810","1840");
 act("fri","field","Edan The Dee Jay","1900","2000");
 
 $(document).ready(function(){
+
+  //Lets get this shiznit started
+  start();
+
   
-  //Build line ups
-  for(var i in acts){
-    
-    var start = convertTime(acts[i].start);
-    var finish = convertTime(acts[i].finish);
-    
-    var content = '<li id="'+acts[i].id+'" class="act">' + '<span class="time">'+start+' : '+finish+'</span>'+acts[i].band+'</li>'
-    $('#'+acts[i].day+'_'+acts[i].stage+'_acts').append(content);
-  }
-  
-  //on tap, add/remove the act from the personal timetable
+  //add a listener to the act elements
   $('.act').bind('click', function(e){
     
     //get the id of the act that has been 'tapped'
     var act_id = $(this).attr("id");
     
+    //check to see if the act being tapped is already a favourite
     if($(this).hasClass('fav')){
       
-      for(var i in favs){
-        if(favs[i].id==act_id){
-          favs.splice(i,1);
-        }
-      }
+      //remove the act from favs
+      removeFromFavs(act_id);
       
+      //do some fancy pants styling stuff with the element being tapped
       $(this).removeClass('fav').css('background-color','#eee');;
       $(this).animate({ backgroundColor: "#fff" }, 'slow');
       
+      //re-build the favs time-table
+      buildFavTimeTable(favs);
+      
     }
     else{
-   
-      //match the id with the id of the act in the acts array
-      for(var i in acts){     
-        if(acts[i].id==act_id){
-          //TODO add act_id to html5 storage
+      
+      //add the acts to favs
+      addToFavs(act_id);
+      
+      //do some fancy pants styling stuff with the element being tapped
+      $(this).addClass('fav').css('background-color','#9ada9b');
+      $(this).animate({ backgroundColor: "#EDFFEF" }, 'slow');
+      
+      //re-build the favs time-table
+      buildFavTimeTable(favs);
+      
+    }
+    
+  });
+      
+  
+});
+
+/*
+ * This function is called on the first page load
+ * It will build the line-ups and the fav's timetable and the favs
+ * timetable if the user has already added acts to it
+ */
+ 
+function start(){
+  
+  //loop through all the acts
+  for(var i in acts){
+    
+    //this act is not a fav until proven otherwise
+    var faved = false;
+    
+    //check if there is anything in local storage
+    if(localStorage){
+      
+        //loop through all values in local storage
+        for (x=0; x<=localStorage.length-1; x++){
           
-          //push act[i] to favs array and sort it by start time
-          favs.push(acts[i]);
-          favs.sort(function(a,b){return a.start - b.start})
-          $(this).addClass('fav').css('background-color','#9ada9b');
-          $(this).animate({ backgroundColor: "#EDFFEF" }, 'slow');
+            //grab the value of the current local storage item being examined
+            var key = localStorage.key(x);
+            var val = localStorage.getItem(key);
+            
+            //if thefavs[i]xamined is in local storage add it to the favs array
+            if(val==acts[i].id){
+             
+              favs.push(acts[i]); 
+              faved = true;
+             
+            }
+          
         }
-        
-      }
         
     }
     
+    //add the current act to the line-up
+    addToLineUp(acts[i],faved);
+    
+  }
+  
+  //sort the favs array by start time and build the time table.
+  if(favs){
+    buildFavTimeTable(favs)
+  }
+
+}
+
+
+/*
+ *  This function is used to add an act to the line up by creating the HTML elements 
+ *  The function is passed an 'act' object and a boolean which determined if the act is a fav
+ */
+ 
+function addToLineUp(act,faved){
+  
+    //convert the acts start and finish time from 24 hour time to AM/PM
+    var start = convertTime(act.start);
+    var finish = convertTime(act.finish);
+    
+    //if the act is a favourite, create a string to be added in to the HTML element, else leave it blank
+    if(faved)
+      favClass="fav";
+    else
+      favClass="";
+    
+    //build the HTML string to be inserted in to the time table
+    var content = '<li id="'+act.id+'" class="act '+favClass+'">' + '<span class="time">'+start+' : '+finish+'</span>'+act.band+'</li>';
+    
+    //Grab the correct timetable element and append the HTML string
+    $('#'+act.day+'_'+act.stage+'_acts').append(content);
+    
+}
+
+/*
+ * This function builds the favourites time-table from the favs array
+ */
+
+function buildFavTimeTable(favs){
+  
     //clear the fav timetables ready to be rebuilt
     $('#wed_favs_acts').empty();
     $('#thu_favs_acts').empty();
     $('#fri_favs_acts').empty();
     
-    //after act is added/removed, rebuild the fav timetable
+    //sort the favs by start time
+    favs.sort(function(a,b){return a.start - b.start})
+    
+    //loop through the favs array
     for(var i in favs){
       
+      //convert the start & finish times from 24 hour to AM/PM
       var start = convertTime(favs[i].start);
       var finish = convertTime(favs[i].finish);
       
+      //build the HTML string to be inserted in to the time table
       var content = '<li id="'+favs[i].id+'" class="fav">' + '<span class="time">'+start+' : '+finish+'</span>'+favs[i].band+'<span class="stage">'+favs[i].stage+' Stage</span></li>';
+      
+      //Grab the correct timetable element and append the HTML string
       $('#'+favs[i].day+'_favs_acts').append(content);
       
     }
+}
 
-  });
+/*
+ * This function removes the act with the given ID from the favs array
+ */
+
+function removeFromFavs(id){
   
-})
+  //loop through the favs array
+  for(var i in favs){
+    
+    //find the matching act object
+    if(favs[i].id==id){
+      
+      //remove that shiz from the favs
+      favs.splice(i,1);
+      
+    }
+    
+  }
+  
+  //clear the local storage
+  localStorage.clear();
+  
+  //loop through the fav array
+  for(var i in favs){
+    
+    //add the remaining fav id's back in to local storage
+    localStorage[i] = favs[i].id; 
+    
+  }
+      
+}
 
+/*
+ * This function adds the act with the give ID to the favs array
+ */
+ 
+function addToFavs(id){
+ 
+  //loop through all acts
+  for(var i in acts){  
+       
+    //if current act id equals the given id
+    if(acts[i].id==id){
+      
+      //push act[i] to favs array and sort it by start time
+      favs.push(acts[i]);
+      favs.sort(function(a,b){return a.start - b.start})
+      
+    }
+        
+  }
+  
+  //loop through the fav array
+  for(var i in favs){
+    
+    //add the fav id's to local storage
+    localStorage[i] = favs[i].id; 
+    
+  }
+  
+}
+
+/*
+ * This function convertes the 24hour time provided in to an AM/PM time
+ */
 
 function convertTime(time){
   
@@ -196,5 +341,3 @@ function convertTime(time){
   return converted;
   
 }
-
-

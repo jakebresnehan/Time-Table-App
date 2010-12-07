@@ -713,6 +713,7 @@ ul li.fav{
 background-image: url(img/star.png);
 background-position: 95% 50%;
 background-repeat: no-repeat;
+background-color:#EDFFEF;
 }
 
 .fav_bg{
