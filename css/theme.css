@@ -1,18 +1,21 @@
 body {
-     background: rgb(241,215,140);
-      
+    background: rgb(197,204,211) url(img/pinstripes.png);
 }
 
 body > * {
-    background: rgb(241,215,140);
-    background-image:url('img/bg.jpg');
+    
 }
 
-h1, h2 {
-    font: bold 18px Helvetica;
+h1, h2, h3 {
+    font: bold 22px Helvetica;
     text-shadow: rgba(255,255,255,.2) 0 1px 1px;
-    color: rgb(76, 86, 108);
+    color: #666;
     margin: 10px 20px 6px;
+}
+
+h3{
+     font-size:15px;
+     margin:10px 20px 0;
 }
 
 /* @group Toolbar */
@@ -142,7 +145,6 @@ ul {
     font: bold 17px Helvetica;
     padding: 0;
     margin: 15px 10px 17px 10px;
-    -webkit-border-radius: 8px;
 }
 
 ul li {
@@ -150,6 +152,7 @@ ul li {
     border-top: 1px solid #B4B4B4;
     list-style-type: none;
     padding: 10px 10px 10px 10px;
+    position:relative;
 }
 
 /* when you have a first LI item on any list */
@@ -192,6 +195,9 @@ ul li a, li.img a + a {
     margin: -10px;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+
+
+
 
 ul li a.active {
     background: #194fdb url(img/selection.png) 0 0 repeat-x;
@@ -331,12 +337,9 @@ ul li input[type="checkbox"]:after, ul li input[type="radio"]:after {
 }
 
 .edgetoedge, .metal {
-    margin: 40px auto;
-    text-align: center;
-    width: 80%;
+    margin: 0;
     padding: 0;
     background-color: rgb(255,255,255);
-    background-image: url(img/chevron.png) no-repeat 0px 0px;
 }
 
 .edgetoedge ul, .metal ul, .plastic ul {
@@ -364,6 +367,7 @@ ul li input[type="checkbox"]:after, ul li input[type="radio"]:after {
 
 .edgetoedge li, .metal li {
     -webkit-border-radius: 0;
+    height:47px;
 }
 
 .edgetoedge li em {
@@ -681,31 +685,11 @@ ul.individual li a:hover {
     font-weight: bold;
 }
 
-ul li.forward{
-background-image: url(img/chevron.png);
-background-position: 100% 50%;
-background-repeat: no-repeat;
-}
-
-span.time{
-display:block;
-font-size: 80%;
-padding-bottom: 5px;
-}
-
-span.stage{
-  display:block;
-  font-size: 80%;
-  padding-top: 5px;
-  text-transform:capitalize;
-}
-
-
 ul li.act{
 background-image: url(img/default_star.png);
 background-position: 95% 50%;
 background-repeat: no-repeat;
-
+background-color:#f8f8f8;
 }
 
 
@@ -713,55 +697,65 @@ ul li.fav{
 background-image: url(img/star.png);
 background-position: 95% 50%;
 background-repeat: no-repeat;
-background-color:#EDFFEF;
+background-color:#fff;
 }
 
-.fav_bg{
-  background-image: url('img/bg-fav.jpg');
+ul li.removable{
+     background-image: url(img/cancel.png);
+     background-position: 95% 50%;
+background-repeat: no-repeat;
+background-color:#fff;
 }
 
-
-
-/*
- * Media queries for responsive design
- * These follow after primary styles so they will successfully override. 
- */
-
-@media all and (orientation:portrait) { 
-  /* Style adjustments for portrait mode goes here */
-  
+ul li.fav_clash_prev{
+     padding-left:50px;
+     background-image: url(img/clash.png);
+     background-position: 30px 50%;
+     background-repeat: no-repeat;
 }
 
-@media all and (orientation:landscape) { 
-  /* Style adjustments for landscape mode goes here */
-  
+header{
+     background:url(img/header-bg.png) repeat-x;
+     padding:15px 0 0 30px;
+     height:26px;
+     color:#7f7f7f;
+     font-weight:normal;
+     text-shadow: #fff 0px 1px 0;
+     font-size:12px;
+     border-bottom: 1px solid #B4B4B4;
 }
 
-/* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
-   Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
-
-@media handheld and (max-width: 480px), screen and (max-device-width: 480px), screen and (max-width: 500px)  {
-
-.screen{display:none;}
-
-
-  
-  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you
-     j.mp/textsizeadjust 
-  html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
+ul li h2 a{
+     color:#666
 }
 
-
-@media screen and (min-width: 505px)
-{
-   
- 
-.screen{display: block;} 
-.toolbar{display:none;}
-.edgetoedge{display:none;}
-  
-   
+ul li p.date{
+     position:absolute;
+     right:60px;
+     top:16px;
+     text-transform:uppercase;
+     font-size:8px;
+     letter-spacing:3px;
+     color:#aaa;
 }
 
+ul li p.date span{
+     display:block;
+     font-size:22px;
+     letter-spacing:1px;
+}
 
+ul li p.time{
+     color:#aaa;
+     font-size:12px;
+     margin:0 0 0 20px;
+}
 
+ul li p.time span{
+     text-transform:capitalize;
+}
+
+/*for accordian effect, uncomment this and the bit in scripts.js to see it in action
+header+ul{
+     display:none;
+}*/

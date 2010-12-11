@@ -100,35 +100,58 @@ $(document).ready(function(){
     //get the id of the act that has been 'tapped'
     var act_id = $(this).attr("id");
     
-    //check to see if the act being tapped is already a favourite
-    if($(this).hasClass('fav')){
+    if($(this).hasClass('removable')){
       
-      //remove the act from favs
+      if($(this).hasClass('fav_clash_next')){
+        $(this).next().removeClass('fav_clash_prev');
+      }
+      
       removeFromFavs(act_id);
-      
-      //do some fancy pants styling stuff with the element being tapped
-      $(this).removeClass('fav').css('background-color','#eee');;
-      $(this).animate({ backgroundColor: "#fff" }, 'slow');
-      
-      //re-build the favs time-table
-      buildFavTimeTable(favs);
-      
+      $(this).hide();
     }
     else{
-      
-      //add the acts to favs
-      addToFavs(act_id);
-      
-      //do some fancy pants styling stuff with the element being tapped
-      $(this).addClass('fav').css('background-color','#9ada9b');
-      $(this).animate({ backgroundColor: "#EDFFEF" }, 'slow');
-      
-      //re-build the favs time-table
-      buildFavTimeTable(favs);
-      
+      //check to see if the act being tapped is already a favourite
+      if($(this).hasClass('fav')){
+        
+        //remove the act from favs
+        removeFromFavs(act_id);
+        
+        //do some fancy pants styling stuff with the element being tapped
+        $(this).removeClass('fav').css('background-color','#eee');;
+        $(this).animate({ backgroundColor: "#f8f8f8" }, 'slow');
+        
+        //re-build the favs time-table
+        buildFavTimeTable(favs);
+        
+      }
+      else{
+        
+        //add the acts to favs
+        addToFavs(act_id);
+        
+        //do some fancy pants styling stuff with the element being tapped
+        $(this).addClass('fav').css('background-color','#eee');
+        $(this).animate({ backgroundColor: "#fff" }, 'slow');
+        
+        //re-build the favs time-table
+        buildFavTimeTable(favs);
+        
+      }
     }
     
   });
+  
+  /* thought about accordian style.. not sure if its good or not, uncomment to see it in action
+  $('header').bind('click', function(e){
+    
+    var lineup = $(this).next('ul');
+    
+    if(lineup.hasClass('open'))
+      lineup.stop().removeClass('open').slideUp();
+    else
+      lineup.stop().addClass('open').slideDown();
+      
+  });*/
       
   
 });
@@ -200,7 +223,8 @@ function addToLineUp(act,faved){
       favClass="";
     
     //build the HTML string to be inserted in to the time table
-    var content = '<li id="'+act.id+'" class="act '+favClass+'">' + '<span class="time">'+start+' : '+finish+'</span>'+act.band+'</li>';
+    
+    var content = '<li id="'+act.id+'" class="act '+favClass+'">' + '<h3>'+act.band+'</h3><p class="time">'+start+' - '+finish+'</p></li>';
     
     //Grab the correct timetable element and append the HTML string
     $('#'+act.day+'_'+act.stage+'_acts').append(content);
@@ -214,9 +238,9 @@ function addToLineUp(act,faved){
 function buildFavTimeTable(favs){
   
     //clear the fav timetables ready to be rebuilt
-    $('#wed_favs_acts').empty();
-    $('#thu_favs_acts').empty();
-    $('#fri_favs_acts').empty();
+    $('#wed_favs_acts').empty().hide();
+    $('#thu_favs_acts').empty().hide();
+    $('#fri_favs_acts').empty().hide();
     
     //sort the favs by start time
     favs.sort(function(a,b){return a.start - b.start})
@@ -228,14 +252,75 @@ function buildFavTimeTable(favs){
       var start = convertTime(favs[i].start);
       var finish = convertTime(favs[i].finish);
       
+      //check for timetable clashes, add extra classes to HTML string below as necessary
+      var clash = checkForClashes(favs,i);
+                  
       //build the HTML string to be inserted in to the time table
-      var content = '<li id="'+favs[i].id+'" class="fav">' + '<span class="time">'+start+' : '+finish+'</span>'+favs[i].band+'<span class="stage">'+favs[i].stage+' Stage</span></li>';
-      
+      var content = '<li id="'+favs[i].id+'" class="act removable' +clash+ '">' + '<h3>'+favs[i].band+'</h3><p class="time">'+start+' - '+finish+' @<span> '+favs[i].stage+' Stage</span></li>';
+    
       //Grab the correct timetable element and append the HTML string
-      $('#'+favs[i].day+'_favs_acts').append(content);
+      $('#'+favs[i].day+'_favs_acts').append(content).show();
       
     }
 }
+
+function checkForClashes(favs,i)
+{
+    var retval = "";
+      
+    var prevFavToday = -1;
+    var nextFavToday = -1;
+
+    // clash before:
+    // get the index of the act starting before the ith act on the day
+    for (j=0; j<i; j++){
+      if (favs[i].day == favs[j].day){
+      prevFavToday = j;
+      }
+    }
+
+    // if there's a clash with the item on the timetable add classes to HTML string
+    if(prevFavToday > -1){
+      if (favs[i].start < favs[prevFavToday].finish){
+        retval += " fav_clash_prev";
+      }
+    }
+
+    // clash after:
+    // get the index of the act starting after the ith act on the day
+    for (j=favs.length-1; j>i; j--){
+      if (favs[i].day == favs[j].day){
+      nextFavToday = j;
+      }
+    }
+
+    // add class to HTML string
+    if(nextFavToday > -1){
+      if (favs[i].finish > favs[nextFavToday].start){
+        retval += " fav_clash_next";
+      }
+    }
+        
+    /*
+    // debugging string
+    
+    var debug = "";
+    
+    debug += '<br />i:'+i+' st:'+favs[i].start+' fn:'+favs[i].finish;
+    debug += '<br/>'+diff;
+    if (prevFavToday > -1){
+    debug += '<br/>pft:'+prevFavToday+' st:'+favs[prevFavToday].start+' fn:'+favs[prevFavToday].finish;}
+    if (nextFavToday > -1){
+    debug += '<br/>nft:'+nextFavToday+' st:'+favs[nextFavToday].start+' fn:'+favs[nextFavToday].finish;}
+    
+    retval += '">'; // close the fav class
+    retval += debug; // inject a lil debug string
+    retval += '<br "'; // put something for the normal fav class close to close (messily clean up some mess)
+    
+    */
+      
+    return retval;
+ }
 
 /*
  * This function removes the act with the given ID from the favs array
@@ -336,7 +421,7 @@ function convertTime(time){
     min = time.substring(2,4);
   }
     
-  converted = hr+':'+min+ampm;
+  converted = hr+':'+min+' '+ampm;
   
   return converted;
   

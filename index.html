@@ -32,16 +32,26 @@
       <a href="#my_timetable" class="button flip">My Timetable</a>
     </div>
     
-    <ul class="edgetoedge">
-        <li class="forward"><a href="#wed">Wednesday</a></li>
-        <li class="forward"><a href="#thu">Thursday</a></li>
-        <li class="forward"><a href="#fri">New Years Eve</a></li>
+    <ul class="metal">
+        <li class="arrow">
+            <h2><a href="#wed">Wednesday</a></h2>
+            <p class="date">Dec <span>29</span></p>
+        </li>
+        <li class="arrow">
+            <h2><a href="#thu">Thursday</a></h2>
+            <p class="date">Dec <span>30</span></p>       
+        </li>
+        <li class="arrow">
+            <h2><a href="#fri">New Years Eve</a></h2>
+            <p class="date">Dec <span>31</span></p> 
+        </li>
     </ul>
      
-    <!-- added for screens bigger then mobile-->
+    <!-- added for screens bigger then mobile
+    commented out while in dev
     <div class="screen"> 
          <p>Hey I think you should view this on your phone silly billy!</p>
-    </div>
+    </div>-->
     
 </div>
 
@@ -52,15 +62,18 @@
       <h1>My Timetable</h1>
       <a href="#" class="back">back</a>
     </div>
-
+    
+    <header><span>Wednesday<span></header>
     <ul class="edgetoedge" id="wed_favs_acts">
       <!--filled by scripts.js-->
     </ul>
     
+    <header><span>Thursday</span></header>
     <ul class="edgetoedge" id="thu_favs_acts">
       <!--filled by scripts.js-->
     </ul>
     
+    <header><span>Friday</span></header>
     <ul class="edgetoedge" id="fri_favs_acts">
       <!--filled by scripts.js-->
     </ul>
@@ -76,6 +89,7 @@
       <a href="#my_timetable" class="button flip">My Timetable</a>
    </div>
     
+    <header>Valley Stage</header>
     <ul class="edgetoedge" id="wed_valley_acts">
       <!-- this is empty and will be filled by scripts.js -->
     </ul>
@@ -90,12 +104,14 @@
       <h1>[day]</h1>
       <a href="#my_timetable" class="button flip">My Timetable</a>
     </div>
-         
-    <ul class="edgetoedge" id="thu_valley_acts">
+    
+    <header>Field Stage</header>
+    <ul class="edgetoedge" id="thu_field_acts">
         <!-- this is empty and will be filled by scripts.js -->
     </ul>
-          
-    <ul class="edgetoedge" id="thu_field_acts">
+    
+    <header>Valley Stage</header>
+    <ul class="edgetoedge" id="thu_valley_acts">
         <!-- this is empty and will be filled by scripts.js -->
     </ul>
         
@@ -109,14 +125,17 @@
       <h1>[day]</h1>
       <a href="#my_timetable" class="button flip">My Timetable</a>
     </div>
-        
+     
+    <header>Field Stage</header>
+    <ul class="edgetoedge" id="fri_field_acts">
+        <!-- this is empty and will be filled by scripts.js -->
+    </ul>     
+       
+    <header>Valley Stage</header>
     <ul class="edgetoedge" id="fri_valley_acts">
         <!-- this is empty and will be filled by scripts.js -->
     </ul>
         
-    <ul class="edgetoedge" id="fri_field_acts">
-        <!-- this is empty and will be filled by scripts.js -->
-    </ul>
         
 </div>
       
