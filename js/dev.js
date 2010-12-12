@@ -89,7 +89,9 @@ act(false,"fri","field","The Bamboos","1810","1840");
 act(false,"fri","field","Edan The Dee Jay","1900","2000");
 
 $(document).ready(function(){
-  checkLocalStorage();
+  if(localStorage){
+   checkLocalStorage();
+  }
   updateLineUps();
 })
 
