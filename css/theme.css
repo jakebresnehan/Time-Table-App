@@ -624,10 +624,10 @@ ul.individual li + li {
 
 ul.individual li a {
     color: rgb(50,79,133);
-    line-height: 16px;
+    line-height: 14px;
     margin: -11px -10px -14px -10px;
-    padding: 11px 10px 14px 10px;
-    -webkit-border-radius: 8px;
+    padding: 10px 10px 14px 10px;
+    -webkit-border-radius: 6px;
 }
 
 ul.individual li a:hover {
