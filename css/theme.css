@@ -709,7 +709,7 @@ background-color:#fff;
 
 ul li.fav_clash_prev{
      padding-left:50px;
-     background:url(img/clash.png) 30px 50% no-repeat, url(img/cancel.png) 95% 50% no-repat; 
+     background:url(img/clash.png) 30px 50% no-repeat, url(img/cancel.png) 95% 50% no-repeat #eee; 
 }
 
 ul li.fav_clash_prev p.time{
