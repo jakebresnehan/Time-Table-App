@@ -624,10 +624,10 @@ ul.individual li + li {
 
 ul.individual li a {
     color: rgb(50,79,133);
-    line-height: 16px;
+    line-height: 14px;
     margin: -11px -10px -14px -10px;
-    padding: 11px 10px 14px 10px;
-    -webkit-border-radius: 8px;
+    padding: 10px 10px 14px 10px;
+    -webkit-border-radius: 6px;
 }
 
 ul.individual li a:hover {
@@ -677,12 +677,15 @@ ul.individual li a:hover {
     background: #dce1eb;
     font-size: 12px;
     line-height: 16px;
-    text-align: center;
     text-shadow: rgba(255,255,255,.8) 0 1px 0;
     color: rgb(76, 86, 108);
     padding: 15px;
     border-top: 1px solid rgba(76, 86, 108, .3);
     font-weight: bold;
+}
+
+.info p{
+padding: 10px;
 }
 
 ul li.act{

@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html manifest="manifest.php">
 <head>
     <meta charset="UTF-8" />
     <title>Falls Marion Bay</title>
@@ -10,12 +10,12 @@
     <script src="js/jqtouch.min.js" type="application/x-javascript" charset="utf-8"></script>
     <script src="js/jqt.autotitles.js" type="application/x-javascript" charset="utf-8"></script>
     <script src="js/color.js" type="application/x-javascript" charset="utf-8"></script>
-   <!-- have not implemented offline yet - http://code.google.com/p/jqtouch/wiki/OfflineSupport
-      <script src="js/jqt.offline.js" type="text/javascript" charset="utf-8"></script>
-    -->
+ 
     <script src="js/dev.js" type="application/x-javascript" charset="utf-8"></script>
     
-    
+    <!-- have not implemented offline yet - http://code.google.com/p/jqtouch/wiki/OfflineSupport -->
+        <script src="js/jqt.offline.js" type="text/javascript" charset="utf-8"></script>
+  
     
     <!-- Uncomment if you are specifically targeting less enabled mobile browsers
     <link rel="stylesheet" media="handheld" href="css/handheld.css?v=2">  -->
@@ -45,6 +45,9 @@
             <h2><a href="#fri">Friday</a></h2>
             <p class="date">Dec <span>31</span></p> 
         </li>
+    </ul>
+    <ul class="individual">
+        <li><a href="#about" class="flip">About</a></li>
     </ul>
      
     <!-- added for screens bigger then mobile
@@ -135,6 +138,66 @@
     <ul class="edgetoedge" id="fri_valley_acts">
         <!-- this is empty and will be filled by scripts.js -->
     </ul>
+        
+        
+</div>
+
+
+<!-- About ----------------------------------------------------------------------> 
+<div id="about">
+    
+    <div class="toolbar">
+      <a href="#" class="back">back</a>
+      <h1>[day]</h1>
+    </div>
+     
+    <header>About the app</header>
+     <div class="info">
+          <p>FALLS-app</p>
+          <p>Say goodbye to torn, beer-stained paper timetables!</p>
+          <p>With the Unofficial Falls Festival timetable app you can
+             view the line up of bands for each day and add bands to
+             your personal time-table with one touch. Once you've
+             added the bands you want to see, you'll be able to 
+             view your personal time-table, be aware of any potential
+             clashes and plan your day with ease!</p>
+      </div>
+      
+      <header>How to use</header>
+       <div class="info">
+            <p>
+            Step 1:<br />
+            Visit this website from your phone and select your festival to begin.</p>
+            <p>Step 2:<br />
+            Add the phone to your iPhone Home Screen for easy access</p>
+            <p>Step 3:<br />
+            Start adding bands and build your personal time-table<p>
+        </div>
+       
+    <header>the creators</header>
+     <div class="info">
+          <p>This is not an official Falls Festival App!</p>
+
+          <p>This app is in no way associated with the Falls Festival.
+             We're just a couple of Falls regulars who decided that we were
+             sick of having to rely of time-tables torn out of newspapers
+             to organise our days at the Falls Festival - our solution was
+             to build this app, which we've decided to share with everyone.</p>
+
+          <p>So add this app to your iPhone, use it, and if you like it all
+             we ask is that you tell you friends and get them to use it too!</p>
+          
+          
+          <p>Thanks for stopping by!</p>
+
+          <p>If you'd like to thank, abuse or stalk the guys who developed this app you can find us on twitter:</p>
+
+          <p>Jake Bresnehan (@jake_bresnehan)</p>
+          <p>Dean Rollins (@deanorollins)</p>
+          <p>John Cobb (@john0514)</p>
+
+          <p>Hope you like it!</p>
+      </div>
         
         
 </div>
