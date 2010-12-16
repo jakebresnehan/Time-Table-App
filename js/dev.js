@@ -152,7 +152,7 @@ function updateLineUps(){
     var start = convertTime(favs[i].start);
     var finish = convertTime(favs[i].finish);
     
-    //check for timetable clashes, add extra classes to HTML string below as necessary
+    //chec   k for timetable clashes, add extra classes to HTML string below as necessary
     var clash = checkForClashes(favs,i);
                 
     //build the HTML string to be inserted in to the time table ' +clash+ '
