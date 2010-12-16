@@ -692,7 +692,7 @@ ul li.act{
 background-image: url(img/default_star.png);
 background-position: 95% 50%;
 background-repeat: no-repeat;
-background-color:#f8f8f8;
+background-color:#fff;
 }
 
 
@@ -700,7 +700,7 @@ ul li.fav{
 background-image: url(img/star.png);
 background-position: 95% 50%;
 background-repeat: no-repeat;
-background-color:#fff;
+background-color:#e6f0d9;
 }
 
 ul li.removable{
@@ -712,9 +712,11 @@ background-color:#fff;
 
 ul li.fav_clash_prev{
      padding-left:50px;
-     background-image: url(img/clash.png);
-     background-position: 30px 50%;
-     background-repeat: no-repeat;
+     background:url(img/clash.png) 30px 50% no-repeat, url(img/cancel.png) 95% 50% no-repeat #eee; 
+}
+
+ul li.fav_clash_prev p.time{
+
 }
 
 header{
@@ -757,6 +759,8 @@ ul li p.time{
 ul li p.time span{
      text-transform:capitalize;
 }
+
+
 
 /*for accordian effect, uncomment this and the bit in scripts.js to see it in action
 header+ul{

@@ -91,10 +91,10 @@ act(false,"fri","field","The Bamboos","1810","1840");
 act(false,"fri","field","Edan The Dee Jay","1900","2000");
 
 $(document).ready(function(){
-  if(localStorage){
-   checkLocalStorage();
-  }
+
+  checkLocalStorage();
   updateLineUps();
+  
 })
 
 //Function to check local storage for favs
@@ -105,7 +105,6 @@ function checkLocalStorage(){
     //grab the value of the current local storage item being examined
     var key = localStorage.key(x);
     var val = localStorage.getItem(key);
-          
     acts[val].fav=true;
     
   }
@@ -155,7 +154,7 @@ function updateLineUps(){
     var start = convertTime(favs[i].start);
     var finish = convertTime(favs[i].finish);
     
-    //check for timetable clashes, add extra classes to HTML string below as necessary
+    //chec   k for timetable clashes, add extra classes to HTML string below as necessary
     var clash = checkForClashes(favs,i);
                 
     //build the HTML string to be inserted in to the time table ' +clash+ '
@@ -216,17 +215,14 @@ function eventHandler(element){
   var act_id = element.attr("id");
   
   if(element.hasClass('fav')){
-    console.log('eventHandled: fav');
     acts[act_id].fav=false;
   }
   
   if(element.hasClass('non-fav')){
-    console.log('eventHandled: non-fav');
     acts[act_id].fav=true;
   }
   
   if(element.hasClass('removable')){
-    console.log('eventHandled: removable');
     acts[act_id].fav=false;
   }
   
