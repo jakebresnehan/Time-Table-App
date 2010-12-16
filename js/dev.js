@@ -1,6 +1,7 @@
 $.jQTouch({
   icon: 'css/img/jqtouch.png',
   addGlossToIcon: true,
+  startupScreen: 'css/img/jqt_startup.png',
   statusBar: 'default',
   preloadImages: [
       /*have to read on on why to preLoad and which ones to include*/
