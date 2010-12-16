@@ -1,9 +1,10 @@
 $.jQTouch({
-  icon: 'css/img/jqtouch.png',
-  addGlossToIcon: true,
-  startupScreen: 'css/img/jqt_startup.png',
+  icon: 'css/img/falls_icon.png',
+  addGlossToIcon: false,
+  startupScreen: 'css/img/falls_loading.png',
   statusBar: 'default',
   preloadImages: [
+  'css/img/falls_loading.png'
       /*have to read on on why to preLoad and which ones to include*/
       ]
 });  
