@@ -1,5 +1,5 @@
 body {
-    background: rgb(197,204,211) url(img/pinstripes.png);
+    background:#82aac3 url(img/pinstripes.png) repeat-x;
 }
 
 body > * {
