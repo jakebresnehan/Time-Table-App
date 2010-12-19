@@ -1,0 +1,168 @@
+<!doctype html>
+<html manifest="manifest.php">
+<head>
+    <meta charset="UTF-8" />
+    <title>Falls Lorne</title>
+    
+    <style type="text/css" media="screen">@import "js/jqtouch.min.css";</style>
+    <style type="text/css" media="screen">@import "css/theme.css";</style>
+    <script src="js/jquery.1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jqtouch.min.js" type="application/x-javascript" charset="utf-8"></script>
+    <script src="js/jqt.autotitles.js" type="application/x-javascript" charset="utf-8"></script>
+    <script src="js/color.js" type="application/x-javascript" charset="utf-8"></script>
+ 
+    <script src="js/dev.js" type="application/x-javascript" charset="utf-8"></script>
+    
+    <!-- have not implemented offline yet - http://code.google.com/p/jqtouch/wiki/OfflineSupport -->
+        <script src="js/jqt.offline.js" type="text/javascript" charset="utf-8"></script>
+  
+    
+    <!-- Uncomment if you are specifically targeting less enabled mobile browsers
+    <link rel="stylesheet" media="handheld" href="css/handheld.css?v=2">  -->
+    
+    
+</head>
+<body>
+  
+  <!-- Home Page ---------------------------------------------------------------------->
+<div id="home">
+
+    <div class="toolbar">
+      <h1>Lorne</h1>
+      <a href="#my_timetable" class="button flip">Favs</a>
+    </div>
+    
+    <ul class="metal">
+        <li class="arrow">
+          <h2><a href="#tue">Tuesday</a></h2>
+          <p class="date">Dec <span>28</span></p>
+        </li>
+        <li class="arrow">
+            <h2><a href="#wed">Wednesday</a></h2>
+            <p class="date">Dec <span>29</span></p>
+        </li>
+        <li class="arrow">
+            <h2><a href="#thu">Thursday</a></h2>
+            <p class="date">Dec <span>30</span></p>       
+        </li>
+        <li class="arrow">
+            <h2><a href="#fri">New Year's Eve</a></h2>
+            <p class="date">Dec <span>31</span></p> 
+        </li>
+    </ul>
+  
+    <!-- added for screens bigger then mobile
+    commented out while in dev
+    <div class="screen"> 
+         <p>Hey I think you should view this on your phone silly billy!</p>
+    </div>-->
+    
+</div>
+
+<!-- Favs Page ---------------------------------------------------------------------->  
+<div id="my_timetable" class="fav_bg">
+    
+    <div class="toolbar">
+      <h1>My Timetable</h1>
+      <a href="#" class="back">back</a>
+    </div>
+    
+    <header><span>Tuesday<span></header>
+    <ul class="edgetoedge" id="tue_favs_acts">
+      <!--filled by scripts.js-->
+    </ul>
+    <header><span>Wednesday<span></header>
+    <ul class="edgetoedge" id="wed_favs_acts">
+      <!--filled by scripts.js-->
+    </ul>
+    
+    <header><span>Thursday</span></header>
+    <ul class="edgetoedge" id="thu_favs_acts">
+      <!--filled by scripts.js-->
+    </ul>
+    
+    <header><span>New Year's Eve</span></header>
+    <ul class="edgetoedge" id="fri_favs_acts">
+      <!--filled by scripts.js-->
+    </ul>
+
+</div>
+  
+<!-- Tuesday 28th ---------------------------------------------------------------------->
+<div id="tue">
+    
+    <div class="toolbar">
+      <a href="#" class="back">back</a>
+      <h1>[day]</h1>
+      <a href="#my_timetable" class="button flip">Favs</a>
+   </div>
+    
+    <header>The Grand Theatre</header>
+    <ul class="edgetoedge" id="tue_grand_acts">
+      <!-- this is empty and will be filled by scripts.js -->
+    </ul>
+        
+</div>
+
+<!-- Wednesday 29th ---------------------------------------------------------------------->
+<div id="wed">
+    
+    <div class="toolbar">
+      <a href="#" class="back">back</a>
+      <h1>[day]</h1>
+      <a href="#my_timetable" class="button flip">Favs</a>
+   </div>
+    
+    <header>Valley Stage</header>
+    <ul class="edgetoedge" id="wed_valley_acts">
+      <!-- this is empty and will be filled by scripts.js -->
+    </ul>
+        
+</div>
+
+<!-- Thursday 30th ---------------------------------------------------------------------->
+<div id="thu">
+    
+    <div class="toolbar">
+      <a href="#" class="back">back</a>
+      <h1>[day]</h1>
+      <a href="#my_timetable" class="button flip">Favs</a>
+    </div>
+    
+    <header>Grand Theatre</header>
+    <ul class="edgetoedge" id="thu_grand_acts">
+        <!-- this is empty and will be filled by scripts.js -->
+    </ul>
+    
+    <header>Valley Stage</header>
+    <ul class="edgetoedge" id="thu_valley_acts">
+        <!-- this is empty and will be filled by scripts.js -->
+    </ul>
+        
+</div>
+ 
+<!-- Friday 31st ----------------------------------------------------------------------> 
+<div id="fri">
+    
+    <div class="toolbar">
+      <a href="#" class="back">back</a>
+      <h1>NYE</h1>
+      <a href="#my_timetable" class="button flip">Favs</a>
+    </div>
+     
+    <header>Grand Theatre</header>
+    <ul class="edgetoedge" id="fri_grand_acts">
+        <!-- this is empty and will be filled by scripts.js -->
+    </ul>     
+       
+    <header>Valley Stage</header>
+    <ul class="edgetoedge" id="fri_valley_acts">
+        <!-- this is empty and will be filled by scripts.js -->
+    </ul>
+        
+        
+</div>
+
+      
+</body>
+</html>
