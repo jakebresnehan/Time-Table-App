@@ -10,7 +10,7 @@ $.jQTouch({
   
 });  
 
-var act_id = 0;
+var act_id = 200;
 var acts =  new Array();
 var favs = new Array();
 
