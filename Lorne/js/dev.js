@@ -8,9 +8,12 @@ $.jQTouch({
         /*have to read on on why to preLoad and which ones to include*/
         ]
   
-});  
+});
 
-var act_id = 200;
+var festival = 'lorne';
+newFav[0]=festival;
+
+var act_id = 0;
 var acts =  new Array();
 var favs = new Array();
 
@@ -138,7 +141,14 @@ function checkLocalStorage(){
     //grab the value of the current local storage item being examined
     var key = localStorage.key(x);
     var val = localStorage.getItem(key);
-    acts[val].fav=true;
+    
+    val = val.split(',');
+    
+    if(val[0]==festival){
+      var id=val[1];
+      acts[id].fav=true;
+    }
+    
     
   }
   

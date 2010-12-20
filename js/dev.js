@@ -10,9 +10,15 @@ $.jQTouch({
   
 });  
 
+var festival = 'marion bay';
+newFav[0]=festival;
+
 var act_id = 0;
 var acts =  new Array();
 var favs = new Array();
+
+var newFav = new Array();
+
 
 function act(fav, day, stage, band, start, finish){
   
@@ -106,7 +112,13 @@ function checkLocalStorage(){
     //grab the value of the current local storage item being examined
     var key = localStorage.key(x);
     var val = localStorage.getItem(key);
-    acts[val].fav=true;
+    
+    val = val.split(',');
+    
+    if(val[0]==festival){
+      var id=val[1];
+      acts[id].fav=true;
+    }
     
   }
   
@@ -133,7 +145,8 @@ function updateLineUps(){
       
       favClass="fav";
       favs.push(acts[i]);
-      localStorage[i]=acts[i].id;    
+      newFav[1]=acts[i].id;
+      localStorage[i]=newFav;
       
     }
     else
