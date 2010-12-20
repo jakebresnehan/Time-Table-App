@@ -105,7 +105,7 @@ act(false,"fri","valley","A- Trak","0110","0220");
 
 act(false,"fri","grand","World End Press","1230","1240");
 act(false,"fri","grand","Charlie Parr","1300","1350");
-act(false,"fri","grand","Tom Glesson, Josh Earl, Nazeem Hussain, Michael Chamberlin","1400","1500");
+act(false,"fri","grand","Comedy","1400","1500");
 act(false,"fri","grand","The Morning Benders","1520","1610");
 act(false,"fri","grand","Tijuana Cartel","1640","1730");
 act(false,"fri","grand","Dan Kelly's Dream Band","1750","1840");

@@ -27,6 +27,11 @@ function checkLocalStorage(){
     var key = localStorage.key(x);
     var val = localStorage.getItem(key);
     
+    var keyVal = {
+      key : key,
+      val : val
+    }
+    
     valSplit = val.split(',');
 
     if(valSplit[0]==festival){
@@ -34,7 +39,7 @@ function checkLocalStorage(){
       acts[id].fav=true;
     }
     else{
-      keep.push(key,val);
+      keep.push(keyVal);
     }
     
   }
@@ -106,7 +111,10 @@ function updateLineUps(){
   });
   
   for(var i in keep){
-    localStorage[i]=keep[i];
+    var key = keep[i].key;
+    var val = keep[i].val;
+    console.log(key+','+val);
+    localStorage.setItem(key,val);
   }
   
 }

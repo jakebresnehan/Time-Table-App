@@ -712,13 +712,13 @@ ul li.removable{
 
 ul li.fav_clash_prev{
      padding-left:50px;
-     background:url(img/clash.png) 30px -12px no-repeat, url(img/cancel.png) 95% 50% no-repeat #eee;
-     border-top:none;
+     background:url(img/clash.png) 30px 50% no-repeat, url(img/cancel.png) 95% 50% no-repeat #eee;
+     border-top:1px dashed #666;
 }
 
 ul li.fav_clash_next{
      padding-left:50px;
-     background:url(img/clash.png) 30px 55px no-repeat, url(img/cancel.png) 95% 50% no-repeat #eee;
+     background:url(img/clash.png) 30px 50% no-repeat, url(img/cancel.png) 95% 50% no-repeat #eee;
 }
 
 ul li.fav_clash_prev p.time{
